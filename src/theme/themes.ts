@@ -506,3 +506,11 @@ export const themes = {
 };
 
 export type ThemeName = keyof typeof themes;
+
+// Re-export color utilities
+export {
+  generateColorPalette,
+  createCustomTheme,
+  createCustomDarkTheme,
+  type CustomThemeColors,
+} from './colorUtils';

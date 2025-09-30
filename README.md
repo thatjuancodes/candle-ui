@@ -200,26 +200,60 @@ function ThemeToggle() {
 - **Light Theme** - Clean, bright interface
 - **Dark Theme** - Easy on the eyes for low-light environments  
 - **Brand Theme** - Custom branded color scheme
+- **My Brand Theme** - Your custom branded theme (automatically applied)
 
 ### Custom Themes
 
-You can create custom themes by extending the base theme structure:
+#### Simple Theme Configuration
+
+The easiest way to customize your theme is by editing the `myThemes.ts` file. This automatically applies your colors throughout the entire component library:
 
 ```tsx
-import { Theme } from 'candle-ui';
+// src/theme/myThemes.ts
+import { createCustomTheme, createCustomDarkTheme } from './colorUtils';
 
-const customTheme: Theme = {
-  name: 'custom',
-  colors: {
-    primary: {
-      // Your custom primary colors
-      500: '#your-color',
-      // ... other shades
-    },
-    // ... other color definitions
-  },
-  // ... other theme properties
+// Define your brand colors
+export const myBrandColors = {
+  primary: '#0B13DA',    // Your main brand color
+  secondary: '#90A4AE',  // Your secondary brand color
+  success: '#4CAF50',    // Success state color
+  warning: '#FB8C00',    // Warning state color
+  error: '#E53935',      // Error state color
 };
+
+// Create your themes
+export const myLightTheme = createCustomTheme(myBrandColors, 'my-brand');
+export const myDarkTheme = createCustomDarkTheme(myBrandColorsDark, 'my-brand-dark');
+```
+
+#### How It Works
+
+1. **Edit `myThemes.ts`** - Change your colors in one place
+2. **Automatic Application** - Colors are automatically applied to all components
+3. **CSS Custom Properties** - Colors are set as CSS variables for dynamic theming
+4. **Tailwind Integration** - All Tailwind color classes use your custom colors
+
+#### Color Categories
+
+When defining your brand colors, you can specify:
+
+- **`primary`** - Your main brand color (required)
+- **`secondary`** - Your secondary brand color (required)  
+- **`success`** - Color for success states (optional, defaults to green)
+- **`warning`** - Color for warning states (optional, defaults to orange)
+- **`error`** - Color for error states (optional, defaults to red)
+
+Each color automatically generates a complete 11-shade palette (50, 100, 200, ..., 950).
+
+#### Advanced: Generate Individual Color Palettes
+
+You can also generate individual color palettes for specific use cases:
+
+```tsx
+import { generateColorPalette } from 'candle-ui';
+
+const bluePalette = generateColorPalette('#3b82f6');
+// Returns: { 50: '#eff6ff', 100: '#dbeafe', ..., 950: '#172554' }
 ```
 
 ## Development
