@@ -1,0 +1,80 @@
+---
+description: React + Tailwind reusable dashboard template
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: true
+---
+
+project:
+  name: "Dashboard UI Library"
+  type: "react-component-library"
+  language: "typescript"
+  packageManager: "yarn"
+
+style:
+  language: "typescript"
+  framework: "react"
+  css: "tailwind"
+  enforce:
+    - Always use TypeScript (never .js files, only .ts/.tsx).
+    - Always use functional components with props interfaces.
+    - Components must use explicit return types: `(): JSX.Element`.
+    - Do not use `React.FC<Props>`.
+    - Use named exports for components (avoid default exports).
+    - Use `PascalCase` for component and file names.
+    - Co-locate component, stories, and tests in the same folder.
+    - Never hardcode inline styles; always use theme tokens or Tailwind utilities.
+    - Build atomic UI primitives first, then compose them into larger dashboard widgets.
+    - Use `classnames` utility when conditional Tailwind classes are needed.
+
+components:
+  required:
+    - Button
+    - Card
+    - Input
+    - Navbar
+    - Sidebar
+    - Layout (DashboardLayout with navbar + sidebar slots)
+    - Table (base version, extensible for data)
+    - StatWidget (title + value + optional icon)
+  docs: "Every component must include a `.stories.tsx` file in the same folder with at least 2 story variants."
+
+storybook:
+  enforce:
+    - Write stories in TypeScript with CSF3 format.
+    - Document props with JSDoc or TS comments so they auto-generate in Storybook.
+    - Cover common states: default, hover, disabled, error, etc.
+    - Provide stories under at least two themes (light + dark).
+
+theme:
+  structure:
+    - `src/theme/themes.ts` defines multiple theme objects (light, dark, brand).
+    - `src/theme/ThemeProvider.tsx` provides runtime theming with React Context.
+    - Expose a `useTheme()` hook for consuming components.
+  rules:
+    - Define tokens: `colors`, `typography`, `spacing`, `radius`, `shadows`.
+    - Define component defaults (variants, sizes, base classes).
+    - All components must consume theme tokens, not raw values.
+    - Support runtime theme switching via ThemeProvider.
+    - Storybook must include a theme switcher decorator.
+
+testing:
+  library: "vitest + testing-library/react"
+  enforce:
+    - Write unit tests for all shared components.
+    - Prefer behavior-based tests over snapshots.
+
+build:
+  package:
+    type: "npm-library"
+    entry: "src/index.ts"
+    enforce:
+      - Only export components, hooks, and theme utilities.
+      - No dependencies on project-specific APIs (auth, DB, etc.).
+      - Keep library lightweight and tree-shakeable.
+    manager: "yarn"
+
+conventions:
+  - Always use Yarn for installs, scripts, and builds (never npm or pnpm).
+  - Commit messages must follow Conventional Commits (feat:, fix:, docs:, etc.).
+  - Use Prettier + ESLint for consistent formatting.
+  - Use Husky pre-commit hooks to enforce linting and tests.
