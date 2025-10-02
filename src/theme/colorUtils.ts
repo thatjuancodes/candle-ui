@@ -269,89 +269,89 @@ export function createCustomDarkTheme(
   const errorPalette = generateColorPalette(colorConfig.error!);
   const infoPalette = generateColorPalette(colorConfig.info!);
 
-  // For dark themes, we reverse the palette (darker shades become lighter)
+  // For dark themes, we need better contrast - use lighter shades that work well on dark backgrounds
   const reversedPrimary = {
-    50: primaryPalette[950],
-    100: primaryPalette[900],
-    200: primaryPalette[800],
-    300: primaryPalette[700],
-    400: primaryPalette[600],
-    500: primaryPalette[500],
-    600: primaryPalette[400],
-    700: primaryPalette[300],
-    800: primaryPalette[200],
-    900: primaryPalette[100],
-    950: primaryPalette[50],
+    50: primaryPalette[900], // Very light for subtle backgrounds
+    100: primaryPalette[800], // Light for hover states
+    200: primaryPalette[700], // Medium-light for borders
+    300: primaryPalette[600], // Medium for secondary text
+    400: primaryPalette[500], // Base color (same as light theme)
+    500: primaryPalette[400], // Slightly brighter for primary elements
+    600: primaryPalette[300], // Bright for interactive elements
+    700: primaryPalette[200], // Very bright for emphasis
+    800: primaryPalette[100], // Extremely bright for high contrast
+    900: primaryPalette[50], // Maximum brightness
+    950: primaryPalette[50], // Keep maximum brightness for 950 too
   };
 
   const reversedSecondary = {
-    50: secondaryPalette[950],
-    100: secondaryPalette[900],
-    200: secondaryPalette[800],
-    300: secondaryPalette[700],
-    400: secondaryPalette[600],
-    500: secondaryPalette[500],
-    600: secondaryPalette[400],
-    700: secondaryPalette[300],
-    800: secondaryPalette[200],
-    900: secondaryPalette[100],
-    950: secondaryPalette[50],
+    50: secondaryPalette[900], // Very light for subtle backgrounds
+    100: secondaryPalette[800], // Light for hover states
+    200: secondaryPalette[700], // Medium-light for borders
+    300: secondaryPalette[600], // Medium for secondary text
+    400: secondaryPalette[500], // Base color (same as light theme)
+    500: secondaryPalette[400], // Slightly brighter for primary elements
+    600: secondaryPalette[300], // Bright for interactive elements
+    700: secondaryPalette[200], // Very bright for emphasis
+    800: secondaryPalette[100], // Extremely bright for high contrast
+    900: secondaryPalette[50], // Maximum brightness
+    950: secondaryPalette[50], // Keep maximum brightness for 950 too
   };
 
   const reversedSuccess = {
-    50: successPalette[950],
-    100: successPalette[900],
-    200: successPalette[800],
-    300: successPalette[700],
-    400: successPalette[600],
-    500: successPalette[500],
-    600: successPalette[400],
-    700: successPalette[300],
-    800: successPalette[200],
-    900: successPalette[100],
-    950: successPalette[50],
+    50: successPalette[900], // Very light for subtle backgrounds
+    100: successPalette[800], // Light for hover states
+    200: successPalette[700], // Medium-light for borders
+    300: successPalette[600], // Medium for secondary text
+    400: successPalette[500], // Base color (same as light theme)
+    500: successPalette[400], // Slightly brighter for primary elements
+    600: successPalette[300], // Bright for interactive elements
+    700: successPalette[200], // Very bright for emphasis
+    800: successPalette[100], // Extremely bright for high contrast
+    900: successPalette[50], // Maximum brightness
+    950: successPalette[50], // Keep maximum brightness for 950 too
   };
 
   const reversedWarning = {
-    50: warningPalette[950],
-    100: warningPalette[900],
-    200: warningPalette[800],
-    300: warningPalette[700],
-    400: warningPalette[600],
-    500: warningPalette[500],
-    600: warningPalette[400],
-    700: warningPalette[300],
-    800: warningPalette[200],
-    900: warningPalette[100],
-    950: warningPalette[50],
+    50: warningPalette[900], // Very light for subtle backgrounds
+    100: warningPalette[800], // Light for hover states
+    200: warningPalette[700], // Medium-light for borders
+    300: warningPalette[600], // Medium for secondary text
+    400: warningPalette[500], // Base color (same as light theme)
+    500: warningPalette[400], // Slightly brighter for primary elements
+    600: warningPalette[300], // Bright for interactive elements
+    700: warningPalette[200], // Very bright for emphasis
+    800: warningPalette[100], // Extremely bright for high contrast
+    900: warningPalette[50], // Maximum brightness
+    950: warningPalette[50], // Keep maximum brightness for 950 too
   };
 
   const reversedError = {
-    50: errorPalette[950],
-    100: errorPalette[900],
-    200: errorPalette[800],
-    300: errorPalette[700],
-    400: errorPalette[600],
-    500: errorPalette[500],
-    600: errorPalette[400],
-    700: errorPalette[300],
-    800: errorPalette[200],
-    900: errorPalette[100],
-    950: errorPalette[50],
+    50: errorPalette[900], // Very light for subtle backgrounds
+    100: errorPalette[800], // Light for hover states
+    200: errorPalette[700], // Medium-light for borders
+    300: errorPalette[600], // Medium for secondary text
+    400: errorPalette[500], // Base color (same as light theme)
+    500: errorPalette[400], // Slightly brighter for primary elements
+    600: errorPalette[300], // Bright for interactive elements
+    700: errorPalette[200], // Very bright for emphasis
+    800: errorPalette[100], // Extremely bright for high contrast
+    900: errorPalette[50], // Maximum brightness
+    950: errorPalette[50], // Keep maximum brightness for 950 too
   };
 
   const reversedInfo = {
-    50: infoPalette[950],
-    100: infoPalette[900],
-    200: infoPalette[800],
-    300: infoPalette[700],
-    400: infoPalette[600],
-    500: infoPalette[500],
-    600: infoPalette[400],
-    700: infoPalette[300],
-    800: infoPalette[200],
-    900: infoPalette[100],
-    950: infoPalette[50],
+    50: infoPalette[900], // Very light for subtle backgrounds
+    100: infoPalette[800], // Light for hover states
+    200: infoPalette[700], // Medium-light for borders
+    300: infoPalette[600], // Medium for secondary text
+    400: infoPalette[500], // Base color (same as light theme)
+    500: infoPalette[400], // Slightly brighter for primary elements
+    600: infoPalette[300], // Bright for interactive elements
+    700: infoPalette[200], // Very bright for emphasis
+    800: infoPalette[100], // Extremely bright for high contrast
+    900: infoPalette[50], // Maximum brightness
+    950: infoPalette[50], // Keep maximum brightness for 950 too
   };
 
   return {
