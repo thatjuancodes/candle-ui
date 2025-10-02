@@ -150,6 +150,9 @@ export interface CustomThemeColors {
   success?: string;
   warning?: string;
   error?: string;
+  info?: string;
+  light?: string;
+  dark?: string;
 }
 
 /**
@@ -165,6 +168,9 @@ export function createCustomTheme(
     success: colors.success || '#22c55e',
     warning: colors.warning || '#f59e0b',
     error: colors.error || '#ef4444',
+    info: colors.info || '#3b82f6',
+    light: colors.light || '#F4F4F4',
+    dark: colors.dark || '#2E2E2E',
   };
 
   const primaryPalette = generateColorPalette(colorConfig.primary);
@@ -172,6 +178,7 @@ export function createCustomTheme(
   const successPalette = generateColorPalette(colorConfig.success!);
   const warningPalette = generateColorPalette(colorConfig.warning!);
   const errorPalette = generateColorPalette(colorConfig.error!);
+  const infoPalette = generateColorPalette(colorConfig.info!);
 
   return {
     name: themeName,
@@ -181,8 +188,9 @@ export function createCustomTheme(
       success: successPalette,
       warning: warningPalette,
       error: errorPalette,
-      background: '#ffffff',
-      foreground: '#0f172a',
+      info: infoPalette,
+      background: colorConfig.light!, // Use light color for light theme background
+      foreground: colorConfig.dark!, // Use dark color for light theme foreground
       muted: '#f1f5f9',
       mutedForeground: '#64748b',
       border: '#e2e8f0',
@@ -249,6 +257,9 @@ export function createCustomDarkTheme(
     success: colors.success || '#22c55e',
     warning: colors.warning || '#f59e0b',
     error: colors.error || '#ef4444',
+    info: colors.info || '#3b82f6',
+    light: colors.light || '#F4F4F4',
+    dark: colors.dark || '#2E2E2E',
   };
 
   const primaryPalette = generateColorPalette(colorConfig.primary);
@@ -256,6 +267,7 @@ export function createCustomDarkTheme(
   const successPalette = generateColorPalette(colorConfig.success!);
   const warningPalette = generateColorPalette(colorConfig.warning!);
   const errorPalette = generateColorPalette(colorConfig.error!);
+  const infoPalette = generateColorPalette(colorConfig.info!);
 
   // For dark themes, we reverse the palette (darker shades become lighter)
   const reversedPrimary = {
@@ -328,6 +340,20 @@ export function createCustomDarkTheme(
     950: errorPalette[50],
   };
 
+  const reversedInfo = {
+    50: infoPalette[950],
+    100: infoPalette[900],
+    200: infoPalette[800],
+    300: infoPalette[700],
+    400: infoPalette[600],
+    500: infoPalette[500],
+    600: infoPalette[400],
+    700: infoPalette[300],
+    800: infoPalette[200],
+    900: infoPalette[100],
+    950: infoPalette[50],
+  };
+
   return {
     name: themeName,
     colors: {
@@ -336,8 +362,9 @@ export function createCustomDarkTheme(
       success: reversedSuccess,
       warning: reversedWarning,
       error: reversedError,
-      background: '#0f172a',
-      foreground: '#f8fafc',
+      info: reversedInfo,
+      background: colorConfig.dark!, // Use dark color for dark theme background
+      foreground: colorConfig.light!, // Use light color for dark theme foreground
       muted: '#1e293b',
       mutedForeground: '#94a3b8',
       border: '#334155',

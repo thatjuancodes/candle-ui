@@ -4,6 +4,7 @@ import {
   createCustomTheme,
   createCustomDarkTheme,
 } from './colorUtils';
+import { myBrandColors, myBrandColorsDark } from './myThemes';
 
 const meta: Meta = {
   title: 'Theme/Color Palette Generator',
@@ -397,6 +398,185 @@ const darkTheme = createCustomDarkTheme({
 }, 'my-dark-brand');
 // Automatically reverses palettes for dark mode!`}
             </pre>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
+export const MyBrandColors: Story = {
+  render: () => {
+    return (
+      <div className="space-y-8">
+        <div>
+          <h3 className="text-lg font-semibold mb-2">
+            My Brand Colors - Obsidian Blue Theme
+          </h3>
+          <p className="text-gray-600 mb-4">
+            Your custom brand colors representing prestige, clarity, and trust.
+          </p>
+        </div>
+
+        {/* Light Theme Colors */}
+        <div className="space-y-4">
+          <h4 className="text-md font-medium text-gray-800">
+            Light Theme Colors
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {Object.entries(myBrandColors).map(([colorName, colorValue]) => (
+              <div key={colorName} className="text-center">
+                <div
+                  className="w-20 h-20 rounded-lg border border-gray-200 flex items-center justify-center text-white font-bold mb-2 shadow-sm"
+                  style={{ backgroundColor: colorValue }}
+                >
+                  {colorName}
+                </div>
+                <div className="text-sm font-medium capitalize">
+                  {colorName}
+                </div>
+                <div className="text-xs font-mono text-gray-500">
+                  {colorValue}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dark Theme Colors */}
+        <div className="space-y-4">
+          <h4 className="text-md font-medium text-gray-800">
+            Dark Theme Colors
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {Object.entries(myBrandColorsDark).map(
+              ([colorName, colorValue]) => (
+                <div key={colorName} className="text-center">
+                  <div
+                    className="w-20 h-20 rounded-lg border border-gray-200 flex items-center justify-center text-white font-bold mb-2 shadow-sm"
+                    style={{ backgroundColor: colorValue }}
+                  >
+                    {colorName}
+                  </div>
+                  <div className="text-sm font-medium capitalize">
+                    {colorName}
+                  </div>
+                  <div className="text-xs font-mono text-gray-500">
+                    {colorValue}
+                  </div>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* Side by Side Comparison */}
+        <div className="space-y-4">
+          <h4 className="text-md font-medium text-gray-800">
+            Light vs Dark Comparison
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Light Theme Generated Palettes */}
+            <div className="space-y-4">
+              <h5 className="font-medium text-primary-700">
+                Light Theme - Generated Palettes
+              </h5>
+              {Object.entries(myBrandColors).map(([colorName, colorValue]) => {
+                const palette = generateColorPalette(colorValue);
+                return (
+                  <div key={`light-${colorName}`} className="space-y-2">
+                    <h6 className="text-sm font-medium capitalize">
+                      {colorName}
+                    </h6>
+                    <div className="flex space-x-1">
+                      {Object.entries(palette).map(([shade, shadeColor]) => (
+                        <div key={shade} className="text-center">
+                          <div
+                            className="w-8 h-8 rounded border border-gray-200"
+                            style={{ backgroundColor: shadeColor }}
+                            title={`${colorName}-${shade}: ${shadeColor}`}
+                          />
+                          <div className="text-xs font-mono mt-1">{shade}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Dark Theme Generated Palettes */}
+            <div className="space-y-4 bg-gray-900 p-4 rounded-lg">
+              <h5 className="font-medium text-white">
+                Dark Theme - Generated Palettes
+              </h5>
+              {Object.entries(myBrandColorsDark).map(
+                ([colorName, colorValue]) => {
+                  const palette = generateColorPalette(colorValue);
+                  const reversedPalette = {
+                    50: palette[950],
+                    100: palette[900],
+                    200: palette[800],
+                    300: palette[700],
+                    400: palette[600],
+                    500: palette[500],
+                    600: palette[400],
+                    700: palette[300],
+                    800: palette[200],
+                    900: palette[100],
+                    950: palette[50],
+                  };
+                  return (
+                    <div key={`dark-${colorName}`} className="space-y-2">
+                      <h6 className="text-sm font-medium capitalize text-white">
+                        {colorName}
+                      </h6>
+                      <div className="flex space-x-1">
+                        {Object.entries(reversedPalette).map(
+                          ([shade, shadeColor]) => (
+                            <div key={shade} className="text-center">
+                              <div
+                                className="w-8 h-8 rounded border border-gray-600"
+                                style={{ backgroundColor: shadeColor }}
+                                title={`${colorName}-${shade}: ${shadeColor}`}
+                              />
+                              <div className="text-xs font-mono mt-1 text-gray-300">
+                                {shade}
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  );
+                }
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Usage Example */}
+        <div className="space-y-4">
+          <h4 className="text-md font-medium text-gray-800">Usage in Code</h4>
+          <div className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <pre>{`// Import your brand colors
+import { myBrandColors, myBrandColorsDark } from './theme/myThemes';
+
+// Light theme colors:
+// Primary: ${myBrandColors.primary} (Obsidian Blue)
+// Secondary: ${myBrandColors.secondary} (Graphite Blue)
+// Success: ${myBrandColors.success}
+// Warning: ${myBrandColors.warning}
+// Error: ${myBrandColors.error}
+// Info: ${myBrandColors.info}
+
+// Dark theme colors:
+// Primary: ${myBrandColorsDark.primary} (Lighter Obsidian Blue)
+// Secondary: ${myBrandColorsDark.secondary} (Lighter Graphite Blue)
+// Success: ${myBrandColorsDark.success}
+// Warning: ${myBrandColorsDark.warning}
+// Error: ${myBrandColorsDark.error}
+// Info: ${myBrandColorsDark.info}`}</pre>
           </div>
         </div>
       </div>

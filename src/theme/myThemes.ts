@@ -1,25 +1,33 @@
 import { createCustomTheme, createCustomDarkTheme } from './colorUtils';
 
-// Define your brand colors
+// Define your brand colors - Obsidian Blue Theme
 export const myBrandColors = {
-  primary: '#EF4444', // Vivid Red - main brand color
-  secondary: '#64748B', // Slate Gray - balances the intensity of red
-  success: '#22C55E', // Green - success states
-  warning: '#F59E0B', // Orange - warning states
-  error: '#DC2626', // Deep Red - error states
+  primary: '#3366CC', // Obsidian Blue (lighter) - represents prestige, clarity, and trust
+  secondary: '#4A5568', // Graphite Blue - used for structure, text emphasis, subdued elements
+  success: '#399B4A', // Success green
+  warning: '#F4C542', // Warning yellow
+  error: '#E84D3D', // Error red
+  info: '#3A8DFF', // Info blue
+  // Neutral colors
+  light: '#F4F4F4', // Light neutral color
+  dark: '#2E2E2E', // Dark neutral color
 };
 
-const myBrandColorsDark = {
-  primary: '#29B6F6', // Light Blue (brighter for contrast)
-  secondary: '#B0BEC5', // Light Cool Gray
-  success: '#66BB6A', // Medium Green
-  warning: '#FFA726', // Bright Amber
-  error: '#EF5350', // Bright Red
+export const myBrandColorsDark = {
+  primary: '#5588DD', // Lighter Obsidian Blue for dark theme contrast
+  secondary: '#6B7280', // Lighter Graphite Blue for dark theme
+  success: '#4CAF50', // Brighter success green for dark theme
+  warning: '#FFD54F', // Brighter warning yellow for dark theme
+  error: '#FF6B6B', // Brighter error red for dark theme
+  info: '#64B5F6', // Brighter info blue for dark theme
+  // Neutral colors (same values, but used differently in dark theme)
+  light: '#F4F4F4', // Light neutral color
+  dark: '#2E2E2E', // Dark neutral color
 };
 
 // Create your light theme
 export const myLightTheme = createCustomTheme(myBrandColors, 'my-brand');
-// Create your dark theme
+// Create your dark themeI
 export const myDarkTheme = createCustomDarkTheme(
   myBrandColorsDark,
   'my-brand-dark'

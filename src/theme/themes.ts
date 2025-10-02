@@ -64,6 +64,19 @@ export interface ThemeColors {
     900: string;
     950: string;
   };
+  info: {
+    50: string;
+    100: string;
+    200: string;
+    300: string;
+    400: string;
+    500: string;
+    600: string;
+    700: string;
+    800: string;
+    900: string;
+    950: string;
+  };
   background: string;
   foreground: string;
   muted: string;
@@ -198,6 +211,19 @@ export const lightTheme: Theme = {
       900: '#7f1d1d',
       950: '#450a0a',
     },
+    info: {
+      50: '#eff6ff',
+      100: '#dbeafe',
+      200: '#bfdbfe',
+      300: '#93c5fd',
+      400: '#60a5fa',
+      500: '#3b82f6',
+      600: '#2563eb',
+      700: '#1d4ed8',
+      800: '#1e40af',
+      900: '#1e3a8a',
+      950: '#172554',
+    },
     background: '#ffffff',
     foreground: '#0f172a',
     muted: '#f1f5f9',
@@ -321,6 +347,19 @@ export const darkTheme: Theme = {
       900: '#fee2e2',
       950: '#fef2f2',
     },
+    info: {
+      50: '#172554',
+      100: '#1e3a8a',
+      200: '#1e40af',
+      300: '#1d4ed8',
+      400: '#2563eb',
+      500: '#3b82f6',
+      600: '#60a5fa',
+      700: '#93c5fd',
+      800: '#bfdbfe',
+      900: '#dbeafe',
+      950: '#eff6ff',
+    },
     background: '#0f172a',
     foreground: '#f8fafc',
     muted: '#1e293b',
@@ -443,6 +482,19 @@ export const brandTheme: Theme = {
       800: '#991b1b',
       900: '#7f1d1d',
       950: '#450a0a',
+    },
+    info: {
+      50: '#eff6ff',
+      100: '#dbeafe',
+      200: '#bfdbfe',
+      300: '#93c5fd',
+      400: '#60a5fa',
+      500: '#3b82f6',
+      600: '#2563eb',
+      700: '#1d4ed8',
+      800: '#1e40af',
+      900: '#1e3a8a',
+      950: '#172554',
     },
     background: '#ffffff',
     foreground: '#0f172a',
